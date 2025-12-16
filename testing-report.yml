@@ -1,8 +1,26 @@
 ---
-- summary: |
-    Краткое описание тест кейса. Пример: Проверка входа пользователя с существующими логином и паролем
-  status: pass
+summary: |
+  Проведено функциональное и регрессионное тестирование версии 2.0 интернет-магазина.
+  Проверено 8 тест-кейсов, из них 7 пройдено, 1 — с ошибкой.
+  Обнаружено 2 новых бага, 1 — регрессия.
+start-date: "2025-12-15"
+end-date: "2025-12-16"
+tester: София Филиппова
+status: completed
 
-- summary: |
-    Краткое описание тест кейса. Пример: Проверка входа пользователя с существующими логином и паролем
-  status: fail
+test-execution:
+  - test-case: TC-01
+    status: pass
+  - test-case: TC-02
+    status: pass
+  - test-case: TC-03
+    status: pass
+  - test-case: TC-04
+    status: pass
+  - test-case: TC-05
+    status: pass
+  - test-case: TC-06
+    status: pass
+  - test-case: TC-07
+    status: fail
+    comment: Частичная локализация —
