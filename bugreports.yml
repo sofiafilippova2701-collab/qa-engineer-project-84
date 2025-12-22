@@ -1,71 +1,68 @@
-bugreports:
-  - id: BUG-001
-    summary: Не работает восстановление пароля
-    status: Open
-    severity: High
-    priority: High
-    environment: |
-      Браузер: Google Chrome 107.0.5304.121 (64‑бит)
-      ОС: Linux Ubuntu 22.04
-      URL: https://runit.hexlet.ru/login
-    steps-to-reproduce: |
-      1. Перейти на страницу входа: https://runit.hexlet.ru/login
-      2. Нажать «Не помню пароль»
-      3. Ввести зарегистрированную почту
-      4. Нажать «Восстановить пароль»
-    expected-result: |
-      - Появляется сообщение: «Проверьте почту»
-      - На email приходит письмо со ссылкой для восстановления
-    actual-result: |
-      - Страница не реагирует на нажатие кнопки
-      - В консоли DevTools обнаружена утечка email‑адреса (см. лог)
-    evidence:
-      - console-log-password-reset.txt
-      - network-request-dump.har
-    additional-info: |
-      Возможная причина: ошибка в обработчике формы или утечка данных на фронте.
-      Требуется проверка:
-        - JS‑кода страницы восстановления
-        - Логирования на сервере
-        - Политики CSP
-    reported-on: 2025-12-22
-    assigned-to: unassigned
+- id: BUG-001
+  summary: Не работает восстановление пароля
+  status: Open
+  severity: High
+  priority: High
+  environment: |
+    Браузер: Google Chrome 107.0.5304.121 (64‑бит)
+    ОС: Linux Ubuntu 22.04
+    URL: https://runit.hexlet.ru/login
+  steps-to-reproduce: |
+    1. Перейти на страницу входа: https://runit.hexlet.ru/login
+    2. Нажать «Не помню пароль»
+    3. Ввести зарегистрированную почту
+    4. Нажать «Восстановить пароль»
+  expected-result: |
+    - Появляется сообщение: «Проверьте почту»
+    - На email приходит письмо со ссылкой для восстановления
+  actual-result: |
+    - Страница не реагирует на нажатие кнопки
+    - В консоли DevTools обнаружена утечка email‑адреса (см. лог)
+  evidence:
+    - console-log-password-reset.txt
+    - network-request-dump.har
+  additional-info: |
+    Возможная причина: ошибка в обработчике формы или утечка данных на фронте.
+    Требуется проверка:
+      - JS‑кода страницы восстановления
+      - Логирования на сервере
+      - Политики CSP
+  reported-on: 2025-12-22
+  assigned-to: unassigned
 
-  - id: BUG-002
-    summary: Некорректная работа вкладок LOBBY/TOURNAMENT/COMPLETED GAMES
-    status: Open
-    severity: Medium
-    priority: High
-    environment: |
-      Браузер: Google Chrome 107.0.5304.121 (64‑бит)
-      ОС: Linux
-      URL: https://codebattle.hexlet.io
-    steps-to-reproduce: |
-      1. Авторизоваться в системе: https://codebattle.hexlet.io
-      2. Переключить период на Leaderboard (week/month/all)
-      3. Перейти по вкладкам LOBBY / TOURNAMENT / COMPLETED GAMES
-    expected-result: |
-      - URL не меняется
-      - Контент вкладок отображается корректно
-    actual-result: |
-      - В URL добавляется символ «!»
-      - Вкладки не переключаются
-      - Содержимое не обновляется
-    evidence:
-      - assets/bug.png
-      - browser-console-log-tabs.txt
-      - network-trace-tabs.har
-    additional-info: |
-      Возможная причина:
-        - Ошибка в роутинге фронтенда
-        - Некорректная обработка хеш‑части URL
-        - Проблема с React‑маршрутизацией (если используется)
-      Требуется проверка:
-        - Маршрутизации на стороне клиента
-        - Обработчиков событий вкладок
-        - Состояния приложения при переключении
-    reported-on: 2025-12-22
-    assigned-to: unassigned
 
-    reported-on: 2025-12-22
-    assigned-to: unassigned
+- id: BUG-002
+  summary: Некорректная работа вкладок LOBBY/TOURNAMENT/COMPLETED GAMES
+  status: Open
+  severity: Medium
+  priority: High
+  environment: |
+    Браузер: Google Chrome 107.0.5304.121 (64‑бит)
+    ОС: Linux
+    URL: https://codebattle.hexlet.io
+  steps-to-reproduce: |
+    1. Авторизоваться в системе: https://codebattle.hexlet.io
+    2. Переключить период на Leaderboard (week/month/all)
+    3. Перейти по вкладкам LOBBY / TOURNAMENT / COMPLETED GAMES
+  expected-result: |
+    - URL не меняется
+    - Контент вкладок отображается корректно
+  actual-result: |
+    - В URL добавляется символ «!»
+    - Вкладки не переключаются
+    - Содержимое не обновляется
+  evidence:
+    - assets/bug.png
+    - browser-console-log-tabs.txt
+    - network-trace-tabs.har
+  additional-info: |
+    Возможная причина:
+      - Ошибка в роутинге фронтенда
+      - Некорректная обработка хеш‑части URL
+      - Проблема с React‑маршрутизацией (если используется)
+    Требуется проверка:
+      - Маршрутизации на стороне клиента
+      - Обработчиков событий вкладок
+      - Состояния приложения при переключении
+  reported-on: 2025-12-22
+  assigned-to: unassigned
