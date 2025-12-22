@@ -1,5 +1,4 @@
 ---
-test-cases:
   - id: TC-01
     summary: Успешное добавление товара в корзину
     priority: high
