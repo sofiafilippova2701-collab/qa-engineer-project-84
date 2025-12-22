@@ -1,4 +1,5 @@
-    - id: BUG-001
+bugreports:
+  - id: BUG-001
     summary: Не работает восстановление пароля
     status: Open
     severity: High
@@ -51,7 +52,7 @@
       - Вкладки не переключаются
       - Содержимое не обновляется
     evidence:
-      - assets/bug.png (скриншот ошибки)
+      - assets/bug.png
       - browser-console-log-tabs.txt
       - network-trace-tabs.har
     additional-info: |
@@ -63,5 +64,8 @@
         - Маршрутизации на стороне клиента
         - Обработчиков событий вкладок
         - Состояния приложения при переключении
+    reported-on: 2025-12-22
+    assigned-to: unassigned
+
     reported-on: 2025-12-22
     assigned-to: unassigned
