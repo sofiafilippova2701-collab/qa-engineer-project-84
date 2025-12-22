@@ -1,6 +1,4 @@
----
-bugs:
-  - id: BUG-001
+    - id: BUG-001
     summary: Не работает восстановление пароля
     status: Open
     severity: High
