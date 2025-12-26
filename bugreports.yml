@@ -1,68 +1,33 @@
-- id: BUG-001
-  summary: Не работает восстановление пароля
-  status: Open
-  severity: High
-  priority: High
+---
+- summary: |
+    Не работает восстановление пароля
   environment: |
-    Браузер: Google Chrome 107.0.5304.121 (64‑бит)
-    ОС: Linux Ubuntu 22.04
-    URL: https://runit.hexlet.ru/login
+    Google Chrome	107.0.5304.121 (Официальная сборка) (64 бит)
+    ОС Linux 22.04
   steps-to-reproduce: |
-    1. Перейти на страницу входа: https://runit.hexlet.ru/login
-    2. Нажать «Не помню пароль»
-    3. Ввести зарегистрированную почту
-    4. Нажать «Восстановить пароль»
+    1. Зайти на страницу логина https://runit.hexlet.ru/login
+    2. Нажать ссылку "не помню пароль"
+    3. Ввести почту и нажать "Восстановить пароль"
   expected-result: |
-    - Появляется сообщение: «Проверьте почту»
-    - На email приходит письмо со ссылкой для восстановления
+    На странице формы будет сообщение с просьбой проверить почту.
+    На почту придет письмо со ссылкой на восстановление пароля.
   actual-result: |
-    - Страница не реагирует на нажатие кнопки
-    - В консоли DevTools обнаружена утечка email‑адреса (см. лог)
-  evidence:
-    - console-log-password-reset.txt
-    - network-request-dump.har
-  additional-info: |
-    Возможная причина: ошибка в обработчике формы или утечка данных на фронте.
-    Требуется проверка:
-      - JS‑кода страницы восстановления
-      - Логирования на сервере
-      - Политики CSP
-  reported-on: 2025-12-22
-  assigned-to: unassigned
+    На странице ничего не происходит.
+    В консоли браузера в Devtools выводится почта
 
-
-- id: BUG-002
-  summary: Некорректная работа вкладок LOBBY/TOURNAMENT/COMPLETED GAMES
-  status: Open
-  severity: Medium
-  priority: High
+- summary: |
+    Изменяется url в адресной строке браузера, не работают вкладки LOBBY/TOURNAMENT/COMPLETED GAMES
   environment: |
-    Браузер: Google Chrome 107.0.5304.121 (64‑бит)
-    ОС: Linux
-    URL: https://codebattle.hexlet.io
+    Google Chrome	107.0.5304.121 (Официальная сборка) (64 бит)
+    ОС Linux
   steps-to-reproduce: |
-    1. Авторизоваться в системе: https://codebattle.hexlet.io
-    2. Переключить период на Leaderboard (week/month/all)
-    3. Перейти по вкладкам LOBBY / TOURNAMENT / COMPLETED GAMES
+    1. Залогиниться в системе https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    2. Переключить Лидерборд по сроку (месяц/неделя/за все время)
+    3. Переключить LOBBY/TOURNAMENT/COMPLETED GAMES
   expected-result: |
-    - URL не меняется
-    - Контент вкладок отображается корректно
+    url в адресной строке не меняется
+    Вкладки работают
   actual-result: |
-    - В URL добавляется символ «!»
-    - Вкладки не переключаются
-    - Содержимое не обновляется
-  evidence:
-    - assets/bug.png
-    - browser-console-log-tabs.txt
-    - network-trace-tabs.har
-  additional-info: |
-    Возможная причина:
-      - Ошибка в роутинге фронтенда
-      - Некорректная обработка хеш‑части URL
-      - Проблема с React‑маршрутизацией (если используется)
-    Требуется проверка:
-      - Маршрутизации на стороне клиента
-      - Обработчиков событий вкладок
-      - Состояния приложения при переключении
-  reported-on: 2025-12-22
-  assigned-to: unassigned
+    При нажатии на week,month,all в urlHash появляется '!'
+    Вкладки не работают.
+    Ошибка изображена на скриншоте assets/bug.png
